@@ -38,19 +38,19 @@ class Kadane:
         for i in range(1,size):
             curr_max = max(a[i], curr_max + a[i])
             max_so_far = max(max_so_far,curr_max)
-            
+
         return max_so_far
 
 arr = [-2,2,5,-11,6, 99, 112, 8729, 291, 921793, 9739123, 12, 3, -1]
 
 print(
-    "Brute-Force Solution ->", Kadane().max_sub_array_sum_brute_force(
+    "Brute-Force Solution O(n^2) ->", Kadane().max_sub_array_sum_brute_force(
         arr, 
         len(arr))
     )
 
 print(
-    "Kadane's Algorithm Solution ->", Kadane().max_sub_array_sum(
+    "Kadane's Algorithm Solution O(n) ->", Kadane().max_sub_array_sum(
         arr, 
         len(arr))
     )
@@ -58,7 +58,16 @@ print(
 """
 Execution Results:
 
-Brute-Force Solution -> ([10670168, {'start': 4, 'end': 12}], 0.001979351043701172)
-Kadane's Algorithm Solution -> (10670168, 0.0009949207305908203)
+Brute-Force Solution O(n^2) -> ([10670168, {'start': 4, 'end': 12}], 0.001979351043701172)
+Kadane's Algorithm Solution O(n) -> (10670168, 0.0009949207305908203)
+
+Process -
+
+when arr = [1,2,3,4,5]
+
+for index -> 1 element -> 2 curr_max -> 3 and max_so_far -> 3  
+for index -> 2 element -> 3 curr_max -> 6 and max_so_far -> 6  
+for index -> 3 element -> 4 curr_max -> 10 and max_so_far -> 10
+for index -> 4 element -> 5 curr_max -> 15 and max_so_far -> 15
 
 """
